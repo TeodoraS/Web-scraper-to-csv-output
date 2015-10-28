@@ -8,21 +8,13 @@ page = "https://www.zaubacorp.com/company-list/p-1-company.html"
 webpage = urllib2.urlopen(page)
 soup = BeautifulSoup(webpage)
 
-soup.prettify()
-soup.get_text()
-
 for link in soup.find_all("a", {"rel":"nofollow"}):
-    print link.get('href')
-
     webpage = urllib2.urlopen(str(link.get('href')))
     soup = BeautifulSoup(webpage)
 
-    soup.prettify()
-    soup.get_text()
-
-    #Print the list of all rows
+#The list of all rows
     rows = soup.findAll('tr')
-    #Write to CSV
+#Write to CSV
     file = csv.writer(open('E:/programmin/file.csv', 'a'))
     file.writerow(['CIN', 'Company', 'RoC', 'Status'])
 
