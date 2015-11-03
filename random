@@ -3,6 +3,8 @@ import random
 
 all_rolls = []
 
+game_nr = int(raw_input("Insert the number of games:\t"))
+
 def roll_dice(n):
     rolls =[]
     while n > 0:
@@ -13,14 +15,16 @@ def roll_dice(n):
     all_rolls.append(rolls)
 
 
-def verify():
+def verify_dice():
     for element in all_rolls:
         if sum(element) != 20:
             remove(element)
+        else:
+            pass
+        return all_rolls
 
-roll_dice(20)
-
-verify()
-
-print all_rolls
-
+while len(all_rolls) < game_nr :
+    roll_dice(20)
+    verify_dice()
+    continue
+    
