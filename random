@@ -1,35 +1,38 @@
 import random
 
 game_nr = int(raw_input("Insert the number of games:\t"))
+accum_nr = int(raw_input("Insert the number to accumulate:\t"))
 all_rolls = []
 
-def roll_dice(n):
+def roll_dice(accum_nr):
     rolls =[]
-    while n > 0:
+    while accum_nr > 0:
         roll = random.randrange(1, 7, 1)
-        n = n - roll
+        accum_nr = accum_nr - roll
         rolls.append(roll)
     all_rolls.append(rolls)
 
 
 def verify_dice():
     for element in all_rolls:
-        if sum(element) != 20:
+        if sum(element) != accum_nr:
             all_rolls.remove(element)
         else:
             pass
         
-def sort_dice(n):
-    for i in range(4, n):
+def sort_dice(accum_nr):
+    for i in range(1, (accum_nr+1)):
         times = []
         for element in all_rolls:
             if len(element) == i:
                 times.append(element)
-        print "Roll the dice %d times = %s" % (i, len(times))
-            
+        print "Roll the dice %d times = %s games" % (i, len(times))
+
 while len(all_rolls) < game_nr :
-    roll_dice(20)
+    roll_dice(accum_nr)
     verify_dice()
 print all_rolls
-sort_dice(21)
+sort_dice(accum_nr)
+            
+
     
