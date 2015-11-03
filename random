@@ -1,5 +1,8 @@
 import random
 
+
+all_rolls = []
+
 def roll_dice(n):
     rolls =[]
     while n > 0:
@@ -7,8 +10,17 @@ def roll_dice(n):
         n = n - roll
         rolls.append(roll)
     print rolls
+    all_rolls.append(rolls)
+
+
+def verify():
+    for element in all_rolls:
+        if sum(element) != 20:
+            remove(element)
 
 roll_dice(20)
 
+verify()
 
+print all_rolls
 
