@@ -1,0 +1,14 @@
+import random
+
+def roll_dice(n):
+    rolls =[]
+    while n > 0:
+        roll = random.randrange(1, 7, 1)
+        n = n - roll
+        rolls.append(roll)
+    print rolls
+
+roll_dice(20)
+
+
+
