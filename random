@@ -1,8 +1,18 @@
 import random
+import sys
 
-game_nr = int(raw_input("Insert the number of games:\t"))
-accum_nr = int(raw_input("Insert the number to accumulate:\t"))
+
 all_rolls = []
+if len(sys.argv) > 1:
+    game_nr = int(sys.argv[1]) 
+else:
+    game_nr = int(raw_input("Insert the number of games:\t"))
+        
+if len(sys.argv) > 1:
+    accum_nr = int(sys.argv[2])
+else:
+    accum_nr = int(raw_input("Insert the number to accumulate:\t"))
+
 
 def roll_dice(accum_nr):
     rolls =[]
@@ -27,6 +37,7 @@ def sort_dice(accum_nr):
             if len(element) == i:
                 times.append(element)
         print "Roll the dice %d times = %s games" % (i, len(times))
+
 
 while len(all_rolls) < game_nr :
     roll_dice(accum_nr)
