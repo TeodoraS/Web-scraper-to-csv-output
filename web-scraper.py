@@ -15,7 +15,7 @@ for link in soup.find_all("a", {"rel":"nofollow"}):
 #The list of all rows
     rows = soup.findAll('tr')
 #Write to CSV
-    file = csv.writer(open('E:/programmin/file.csv', 'a'))
+    file = csv.writer(open('...', 'a'))
     file.writerow(['CIN', 'Company', 'RoC', 'Status'])
 
     for row in rows:
